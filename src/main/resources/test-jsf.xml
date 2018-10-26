@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jsf="http://jsf.jd.com/schema/jsf"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://jsf.jd.com/schema/jsf
+       http://jsf.jd.com/schema/jsf/jsf.xsd">
+    
+	<jsf:registry id="jsfRegistry" protocol="jsfRegistry" index="i.jsf.jd.com" />
+    <!--<jsf:registry id="jsfRegistry" protocol="jsfRegistry" address="192.168.150.119:40660,192.168.150.121:40660" />-->
+
+	<jsf:consumer id="paySplit"
+				  interface="com.jd.jr.pay.export.rest.PaySplit"
+				  protocol="jsf" alias="paySplit_yufa" timeout="1000000" retries="0" serialization="hessian">
+	</jsf:consumer>
+
+	<jsf:consumer id="orderResource" interface="com.jd.finance.orderbank.export.rest.OrderResource" protocol="jsf" alias="orderRes" timeout="15000"
+				  retries="0" check="false">
+	</jsf:consumer>
+
+	<jsf:consumer id="paySplit"
+				  interface="com.jd.jr.pay.export.rest.PaySplit"
+				  protocol="jsf" alias="paySplit_agreementPay" timeout="1000000" retries="0" serialization="hessian">
+	</jsf:consumer>
+
+</beans>
